@@ -7,6 +7,8 @@ services:
     networks:
       - mc
     tty: true
+    privileged: true
+    restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./plugins:/server/plugins
