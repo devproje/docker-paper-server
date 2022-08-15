@@ -9,8 +9,6 @@ ENV PAPER_BUILDS=387
 WORKDIR /server
 
 ADD ./data/* /server
-RUN mkdir /server/world
-ADD ./world /server/world
 
 RUN wget https://api.papermc.io/v2/projects/paper/versions/${MINECRAFT_VERSION}/builds/${PAPER_BUILDS}/downloads/paper-${MINECRAFT_VERSION}-${PAPER_BUILDS}.jar
 RUN mv paper-${MINECRAFT_VERSION}-${PAPER_BUILDS}.jar paper.jar
