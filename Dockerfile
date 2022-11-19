@@ -1,17 +1,17 @@
 FROM amazoncorretto:17-alpine-jdk
 
 ARG VELOCITY_SECRET
-ARG MINECRAFT_VERSION=1.18.2
-ARG PAPER_BUILDS=387
+ARG MINECRAFT_VERSION=1.19.2
+ARG PAPER_BUILDS=271
 
 ENV VELOCITY_SECRET=${VELOCITY_SECRET}
 
-WORKDIR /server
+WORKDIR /opt/server
 
-ADD ./data/* /server/
+COPY ./data .
 
 RUN wget https://api.papermc.io/v2/projects/paper/versions/${MINECRAFT_VERSION}/builds/${PAPER_BUILDS}/downloads/paper-${MINECRAFT_VERSION}-${PAPER_BUILDS}.jar
 RUN mv paper-${MINECRAFT_VERSION}-${PAPER_BUILDS}.jar paper.jar
 RUN chmod +x /server/run.sh
 
-ENTRYPOINT [ "/server/run.sh" ]
+ENTRYPOINT [ "/opt/server/run.sh" ]

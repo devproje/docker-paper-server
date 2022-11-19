@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  paper-server:
+    container_name: "paper-server"
+    image: "docker-paper-server"
+    networks:
+      - mc
+    tty: true
+    privileged: true
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./plugins:/opt/server/plugins
+      - ./normal:/opt/server/world
+      - ./nether:/opt/server/world_nether
+      - ./end:/opt/server/world_the_end
+
+networks:
+  mc:
+    external: true
