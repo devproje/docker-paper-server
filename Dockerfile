@@ -10,8 +10,7 @@ WORKDIR /opt/server
 
 COPY ./data .
 
-RUN wget https://api.papermc.io/v2/projects/paper/versions/${MINECRAFT_VERSION}/builds/${PAPER_BUILDS}/downloads/paper-${MINECRAFT_VERSION}-${PAPER_BUILDS}.jar
-RUN mv paper-${MINECRAFT_VERSION}-${PAPER_BUILDS}.jar paper.jar
-RUN chmod +x /server/run.sh
+RUN wget https://api.papermc.io/v2/projects/paper/versions/${MINECRAFT_VERSION}/builds/${PAPER_BUILDS}/downloads/paper-${MINECRAFT_VERSION}-${PAPER_BUILDS}.jar -O paper.jar
+RUN chmod +x /opt/server/run.sh
 
 ENTRYPOINT [ "/opt/server/run.sh" ]
