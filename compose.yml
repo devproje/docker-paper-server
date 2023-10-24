@@ -12,9 +12,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./plugins:/opt/server/plugins
-      - ./normal:/opt/server/world
-      - ./nether:/opt/server/world_nether
-      - ./end:/opt/server/world_the_end
+      - ./worlds:/opt/server/worlds
 
 networks:
   mc:

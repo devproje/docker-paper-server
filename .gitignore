@@ -1,7 +1,9 @@
+# Build Script
 build.sh
 
-normal/
-nether/
-end/
-
+# Server Data
+worlds/
 plugins/
+
+# MacOS File Cache
+.DS_Store
